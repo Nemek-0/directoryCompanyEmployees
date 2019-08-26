@@ -1,0 +1,9 @@
+com\utils\HibernateSessionFactoryUtil.class
+com\entity\PhoneNumber.class
+com\dao\EmployeeDAO.class
+com\entity\Employee.class
+com\fxmlControllers\IndexController.class
+com\fxmlControllers\EditEmployeeController.class
+com\fxmlControllers\AddEmployeeController.class
+com\DirectoryCompanyEmployee.class
+com\servece\EmployeeService.class
