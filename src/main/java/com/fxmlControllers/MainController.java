@@ -25,7 +25,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
-public class IndexController implements Initializable {
+public class MainController implements Initializable {
 
     @FXML private TableView<Employee> employeesTable;
     @FXML private TableColumn<Employee, Integer> idColumn;
@@ -45,20 +45,21 @@ public class IndexController implements Initializable {
         this.lastNameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
         this.patronymicColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("patronymic"));
         this.positionColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("position"));
-        ObservableList<String> langs = FXCollections.observableArrayList("ФИО", "Номер телефона");
-        this.searchChoiceBox.setItems(langs);
+        ObservableList<String> search = FXCollections.observableArrayList("ФИО", "Номер телефона");
+        this.searchChoiceBox.setItems(search);
         this.searchChoiceBox.setValue("ФИО");
-        updateDate();
+        updateData();
+
     }
-    private void updateDate(){
+
+    private void updateData(){
         initData();
         employeesTable.setItems(employeesData);
     }
 
     private void initData() {
         EmployeeService employeeService = new EmployeeService();
-        employeesData.addAll(employeeService.getAllEmployees());
-
+        employeesData.setAll(employeeService.getAllEmployees());
     }
 
     @FXML private void handleSearchButton(){
@@ -78,6 +79,7 @@ public class IndexController implements Initializable {
         return searchEmployeesData;
 
     }
+
     private ObservableList<Employee> findByPhoneNumber(ObservableList<Employee> searchEmployeesData){
         for (Employee employee: this.employeesData){
             if(employee.isPhoneNumber(new PhoneNumber(this.searchTextField.getText())))
@@ -102,17 +104,20 @@ public class IndexController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Добовление сотрудника");
         AddEmployeeController controller = loader.getController();
-        controller.setStage(stage);
+
         stage.initModality(Modality.APPLICATION_MODAL);
+        controller.setStage(stage);
         stage.showAndWait();
-        updateDate();
+        updateData();
     }
 
     @FXML private void editEmployee() throws IOException {
+
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/editEmployee.fxml"));
         Parent root = loader.load();
         EditEmployeeController controller = loader.getController();
+
         if(this.employeesTable.getSelectionModel().getSelectedItem() == null)
             return;
         controller.setEmployee(this.employeesTable.getSelectionModel().getSelectedItem());
@@ -120,14 +125,28 @@ public class IndexController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Редоктирование");
         stage.initModality(Modality.APPLICATION_MODAL);
+        controller.setStage(stage);
         stage.showAndWait();
-        updateDate();
+        updateData();
     }
 
     @FXML private void deleteEmployee(){
         EmployeeService employeeService = new EmployeeService();
         employeeService.deleteEmployee(this.employeesTable.getSelectionModel().getSelectedItem());
-        updateDate();
+        updateData();
     }
 
+    @FXML private void editPosition() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/position.fxml"));
+        Parent root = loader.load();
+        PositionController controller = loader.getController();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Редоктирование");
+        stage.initModality(Modality.APPLICATION_MODAL);
+        controller.setStage(stage);
+        stage.showAndWait();
+        updateData();
+    }
 }

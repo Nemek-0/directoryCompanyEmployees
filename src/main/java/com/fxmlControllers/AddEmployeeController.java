@@ -1,13 +1,14 @@
 package com.fxmlControllers;
 
 import com.entity.Employee;
+import com.entity.Position;
 import com.servece.EmployeeService;
+import com.servece.PositionService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,7 +19,7 @@ public class AddEmployeeController implements Initializable {
     @FXML private TextField patronymicTextField;
     @FXML private DatePicker dateBirthDatePicker;
     @FXML private TextField addressResidenceTextField;
-    @FXML private TextField positionTextField;
+    @FXML private ChoiceBox<Position> positionChoiceBox;
     @FXML private TextArea commentTextArea;
     @FXML private Label messageErrorLabel;
     private Stage stage;
@@ -28,12 +29,12 @@ public class AddEmployeeController implements Initializable {
     @FXML private void handleButton(){
         if(checkData()) {
             Employee employee = new Employee(
-                    this.lastNameTextField.getText(),
                     this.firstNameTextField.getText(),
+                    this.lastNameTextField.getText(),
                     this.patronymicTextField.getText(),
                     this.dateBirthDatePicker.getValue(),
                     this.addressResidenceTextField.getText(),
-                    this.positionTextField.getText(),
+                    this.positionChoiceBox.getValue(),
                     this.commentTextArea.getText()
             );
             addEmployee(employee);
@@ -63,10 +64,12 @@ public class AddEmployeeController implements Initializable {
     private void addEmployee(Employee employee){
         EmployeeService employeeService = new EmployeeService();
         employeeService.saveEmployee(employee);
-
     }
-    public void initialize(URL url, ResourceBundle rb) {
 
+    public void initialize(URL url, ResourceBundle rb) {
+        PositionService positionService = new PositionService();
+        ObservableList<Position> positions = FXCollections.observableArrayList(positionService.getAllPosition());
+        this.positionChoiceBox.setItems(positions);
     }
 
     void setStage(Stage stage){

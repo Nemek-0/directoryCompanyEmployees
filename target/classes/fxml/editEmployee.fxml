@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxmlControllers.EditEmployeeController">
     <children>
         <Label layoutX="57.0" layoutY="73.0" text="Фамилия" />
@@ -21,7 +22,6 @@
         <TextField fx:id="patronymicTextField" layoutX="136.0" layoutY="142.0" AnchorPane.leftAnchor="135.0" />
         <DatePicker fx:id="dateBirthDatePicker" layoutX="136.0" layoutY="180.0" prefHeight="25.0" prefWidth="149.0" AnchorPane.leftAnchor="135.0" />
         <TextField fx:id="addressResidenceTextField" layoutX="138.0" layoutY="217.0" prefHeight="25.0" prefWidth="525.0" AnchorPane.leftAnchor="135.0" />
-        <TextField fx:id="positionTextField" layoutX="135.0" layoutY="260.0" AnchorPane.leftAnchor="135.0" />
         <TextArea fx:id="commentTextArea" layoutX="135.0" layoutY="300.0" prefHeight="194.0" prefWidth="407.0" AnchorPane.leftAnchor="135.0" />
         <Button layoutX="701.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="68.0" prefWidth="85.0" text="Соханить" />
         <Label fx:id="messageErrorLabel" layoutX="446.0" layoutY="518.0" prefHeight="68.0" prefWidth="232.0" textAlignment="CENTER" textFill="RED" wrapText="true">
@@ -29,5 +29,6 @@
                 <Font size="18.0" />
             </font>
         </Label>
+      <ChoiceBox fx:id="positionChoiceBox" layoutX="135.0" layoutY="260.0" prefWidth="150.0" />
     </children>
 </AnchorPane>

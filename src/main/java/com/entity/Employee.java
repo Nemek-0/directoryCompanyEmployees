@@ -26,7 +26,9 @@ public class Employee {
 
     private String addressResidence;
 
-    private String position;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "positionId")
+    private Position position;
 
     private String comment;
 
@@ -42,7 +44,7 @@ public class Employee {
         this.patronymic = patronymic;
     }
 
-    public Employee(String firstName, String lastName, String patronymic, LocalDate dateBirth, String addressResidence, String position, String comment) {
+    public Employee(String firstName, String lastName, String patronymic, LocalDate dateBirth, String addressResidence, Position position, String comment) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.patronymic = patronymic;
@@ -110,11 +112,11 @@ public class Employee {
         this.addressResidence = addressResidence;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
@@ -132,6 +134,21 @@ public class Employee {
 
     public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", dateBirth=" + dateBirth +
+                ", addressResidence='" + addressResidence + '\'' +
+                ", position=" + position +
+                ", comment='" + comment + '\'' +
+                ", phoneNumbers=" + phoneNumbers +
+                '}';
     }
 
     public boolean isPhoneNumber(PhoneNumber phoneNumber){
