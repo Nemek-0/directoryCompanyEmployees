@@ -19,8 +19,12 @@
 
         </columns>
       </TableView>
-      <Button layoutX="1113.0" layoutY="82.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="76.0" prefWidth="120.0" text="Добавить сотрудника" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="562.0" AnchorPane.leftAnchor="1113.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="82.0" />
+      <Button layoutX="1113.0" layoutY="82.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="76.0" prefWidth="120.0" text="Добавить сотрудника" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="1113.0" layoutY="179.0" mnemonicParsing="false" onAction="#editEmployee" prefHeight="76.0" prefWidth="120.0" text="Изменить информацию о сотруднике" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="1113.0" layoutY="278.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="76.0" prefWidth="120.0" text="Удалить" />
+      <Label layoutX="1055.0" layoutY="515.0" text="Поиск по" />
+      <ChoiceBox fx:id="searchChoiceBox" layoutX="1130.0" layoutY="511.0" prefHeight="25.0" prefWidth="136.0" />
+      <TextField fx:id="searchTextField" layoutX="1055.0" layoutY="553.0" prefHeight="25.0" prefWidth="213.0" />
+      <Button layoutX="1130.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Найти" />
    </children>
 </AnchorPane>

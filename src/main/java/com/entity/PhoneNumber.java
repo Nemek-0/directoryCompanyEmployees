@@ -14,7 +14,7 @@ public class PhoneNumber {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employeeId")
     private Employee employee;
-
+    @Column(name = "type")
     private String typePhoneNumber;
     private String phoneNumber;
 
@@ -23,6 +23,10 @@ public class PhoneNumber {
     }
     public PhoneNumber(String typePhoneNumber, String phoneNumber) {
         this.typePhoneNumber = typePhoneNumber;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public PhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -56,5 +60,9 @@ public class PhoneNumber {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    boolean isPhoneNumber(PhoneNumber phoneNumber){
+        return this.phoneNumber.equals(phoneNumber.getPhoneNumber());
     }
 }

@@ -1,5 +1,9 @@
 package com.entity;
 
+import com.servece.EmployeeService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -130,4 +134,30 @@ public class Employee {
         this.phoneNumbers = phoneNumbers;
     }
 
+    public boolean isPhoneNumber(PhoneNumber phoneNumber){
+        System.out.println(this.phoneNumbers);
+        for(PhoneNumber thisPhoneNumber : this.phoneNumbers){
+            if(thisPhoneNumber.isPhoneNumber(phoneNumber))
+                return true;
+        }
+        return false;
+    }
+
+    public boolean isName(String name) {
+        String[] arrayName = name.split(" ");
+
+        for(String firstName: arrayName){
+            if(this.firstName.equals(firstName))
+                return true;
+        }
+        for(String lastName: arrayName){
+            if(this.lastName.equals(lastName))
+                return true;
+        }
+        for(String patronymic: arrayName){
+            if(this.patronymic.equals(patronymic))
+                return true;
+        }
+        return false;
+    }
 }

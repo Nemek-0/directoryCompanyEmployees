@@ -1,6 +1,7 @@
 package com.fxmlControllers;
 
 import com.entity.Employee;
+import com.entity.PhoneNumber;
 import com.servece.EmployeeService;
 
 import java.io.IOException;
@@ -14,20 +15,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
 public class IndexController implements Initializable {
+
     @FXML private TableView<Employee> employeesTable;
     @FXML private TableColumn<Employee, Integer> idColumn;
     @FXML private TableColumn<Employee, String> firstNameColumn;
     @FXML private TableColumn<Employee, String> lastNameColumn;
     @FXML private TableColumn<Employee, String> patronymicColumn;
     @FXML private TableColumn<Employee, String> positionColumn;
+    @FXML private ChoiceBox<String> searchChoiceBox;
+    @FXML private TextField searchTextField;
 
     private ObservableList<Employee> employeesData = FXCollections.observableArrayList();
 
@@ -38,6 +44,9 @@ public class IndexController implements Initializable {
         this.lastNameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
         this.patronymicColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("patronymic"));
         this.positionColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("position"));
+        ObservableList<String> langs = FXCollections.observableArrayList("ФИО", "Номер телефона");
+        this.searchChoiceBox.setItems(langs);
+        this.searchChoiceBox.setValue("ФИО");
         updateDate();
     }
     private void updateDate(){
@@ -47,9 +56,33 @@ public class IndexController implements Initializable {
 
     private void initData() {
         EmployeeService employeeService = new EmployeeService();
-        //List<Employee> list = employeeService.getAllEmployees();
         employeesData.addAll(employeeService.getAllEmployees());
 
+    }
+
+    @FXML private void handleSearchButton(){
+        ObservableList<Employee> searchEmployeesData = FXCollections.observableArrayList();
+        if(this.searchChoiceBox.getValue().equals("ФИО"))
+            searchEmployeesData = findByName(searchEmployeesData);
+        if(this.searchChoiceBox.getValue().equals("Номер телефона"))
+            searchEmployeesData = findByPhoneNumber(searchEmployeesData);
+        employeesTable.setItems(searchEmployeesData);
+    }
+
+    private ObservableList<Employee> findByName(ObservableList<Employee> searchEmployeesData){
+        for (Employee employee: this.employeesData){
+            if(employee.isName(this.searchTextField.getText()))
+                searchEmployeesData.add(employee);
+        }
+        return searchEmployeesData;
+
+    }
+    private ObservableList<Employee> findByPhoneNumber(ObservableList<Employee> searchEmployeesData){
+        for (Employee employee: this.employeesData){
+            if(employee.isPhoneNumber(new PhoneNumber(this.searchTextField.getText())))
+                searchEmployeesData.add(employee);
+        }
+        return searchEmployeesData;
     }
 
 

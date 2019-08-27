@@ -25,7 +25,7 @@ public class EmployeeService {
     }
 
     public List getAllEmployees() {
-        return employeeDAO.getAll();
+        return employeeDAO.getAllEmployee();
     }
 
 

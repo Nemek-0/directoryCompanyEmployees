@@ -48,7 +48,13 @@ public class EmployeeDAO {
             session.close();
         }
 
-        public List getAll() {
-            return HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From Employee").list();
+        public List getAllEmployee() {
+            return HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery(
+                    "From Employee").list();
+        }
+        public List getAllPhoneNumber(){
+            return HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery(
+                    "From PhoneNumber").list();
+
         }
 }
