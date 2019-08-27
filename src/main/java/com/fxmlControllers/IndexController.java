@@ -2,6 +2,7 @@ package com.fxmlControllers;
 
 import com.entity.Employee;
 import com.entity.PhoneNumber;
+import com.entity.Position;
 import com.servece.EmployeeService;
 
 import java.io.IOException;
@@ -83,6 +84,11 @@ public class IndexController implements Initializable {
                 searchEmployeesData.add(employee);
         }
         return searchEmployeesData;
+    }
+
+    @FXML private void searchReset(){
+        this.searchTextField.setText("");
+        this.employeesTable.setItems(this.employeesData);
     }
 
 

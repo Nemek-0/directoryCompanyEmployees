@@ -25,6 +25,7 @@
       <Label layoutX="1055.0" layoutY="515.0" text="Поиск по" />
       <ChoiceBox fx:id="searchChoiceBox" layoutX="1130.0" layoutY="511.0" prefHeight="25.0" prefWidth="136.0" />
       <TextField fx:id="searchTextField" layoutX="1055.0" layoutY="553.0" prefHeight="25.0" prefWidth="213.0" />
-      <Button layoutX="1130.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Найти" />
+      <Button layoutX="1074.0" layoutY="593.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Найти" />
+      <Button layoutX="1179.0" layoutY="593.0" mnemonicParsing="false" onAction="#searchReset" text="Сбросить" />
    </children>
 </AnchorPane>
