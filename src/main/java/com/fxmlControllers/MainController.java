@@ -45,7 +45,7 @@ public class MainController implements Initializable {
         this.lastNameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
         this.patronymicColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("patronymic"));
         this.positionColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("position"));
-        ObservableList<String> search = FXCollections.observableArrayList("ФИО", "Номер телефона");
+        ObservableList<String> search = FXCollections.observableArrayList("ФИО", "Номер телефона", "Должность");
         this.searchChoiceBox.setItems(search);
         this.searchChoiceBox.setValue("ФИО");
         updateData();
@@ -83,6 +83,14 @@ public class MainController implements Initializable {
     private ObservableList<Employee> findByPhoneNumber(ObservableList<Employee> searchEmployeesData){
         for (Employee employee: this.employeesData){
             if(employee.isPhoneNumber(new PhoneNumber(this.searchTextField.getText())))
+                searchEmployeesData.add(employee);
+        }
+        return searchEmployeesData;
+    }
+
+    private ObservableList<Employee> findByPosition(ObservableList<Employee> searchEmployeesData){
+        for (Employee employee: this.employeesData){
+            if(employee.getPosition().isNamePosition(this.searchTextField.getText()))
                 searchEmployeesData.add(employee);
         }
         return searchEmployeesData;

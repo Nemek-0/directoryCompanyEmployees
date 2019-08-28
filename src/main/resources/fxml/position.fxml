@@ -15,7 +15,8 @@
         </columns>
       </TableView>
       <Button layoutX="479.0" layoutY="69.0" mnemonicParsing="false" onAction="#addPosition" prefHeight="54.0" prefWidth="93.0" text="Добавить должность" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="479.0" layoutY="133.0" mnemonicParsing="false" onAction="#deletePosition" prefHeight="54.0" prefWidth="93.0" text="Удалить должность" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="479.0" layoutY="200.0" mnemonicParsing="false" onAction="#deletePosition" prefHeight="54.0" prefWidth="93.0" text="Удалить должность" textAlignment="CENTER" wrapText="true" />
       <TextField fx:id="positionTextField" layoutX="423.0" layoutY="30.0" promptText="Название должности" />
+      <Button layoutX="479.0" layoutY="134.0" mnemonicParsing="false" onAction="#editPosition" prefHeight="54.0" prefWidth="93.0" text="Изменить" />
    </children>
 </AnchorPane>

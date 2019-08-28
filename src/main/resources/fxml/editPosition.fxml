@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="168.0" prefWidth="218.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxmlControllers.EditPositionController">
+   <children>
+      <TextField fx:id="editPositionTextField" layoutX="21.0" layoutY="57.0" prefHeight="25.0" prefWidth="172.0" promptText="Название должности" />
+      <Button layoutX="92.0" layoutY="105.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="49.0" prefWidth="101.0" text="Сохранить" />
+   </children>
+</AnchorPane>

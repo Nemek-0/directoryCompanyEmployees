@@ -1,5 +1,7 @@
 package com.entity;
 
+import javafx.geometry.Pos;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -51,6 +53,10 @@ public class Position {
 
     public void setEmployeeList(List<Employee> employeeList) {
         this.employeeList = employeeList;
+    }
+
+    public boolean isNamePosition(String namePosition){
+        return this.getName().equals(namePosition);
     }
 
     @Override

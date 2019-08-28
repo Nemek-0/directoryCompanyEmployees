@@ -21,6 +21,13 @@ public class PhoneNumber {
 
     public PhoneNumber() {
     }
+
+    public PhoneNumber(Employee employee, String typePhoneNumber, String phoneNumber) {
+        this.employee = employee;
+        this.typePhoneNumber = typePhoneNumber;
+        this.phoneNumber = phoneNumber;
+    }
+
     public PhoneNumber(String typePhoneNumber, String phoneNumber) {
         this.typePhoneNumber = typePhoneNumber;
         this.phoneNumber = phoneNumber;
@@ -64,5 +71,13 @@ public class PhoneNumber {
 
     boolean isPhoneNumber(PhoneNumber phoneNumber){
         return this.phoneNumber.equals(phoneNumber.getPhoneNumber());
+    }
+
+    @Override
+    public String toString() {
+        return "PhoneNumber{" +
+                "typePhoneNumber='" + typePhoneNumber + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }

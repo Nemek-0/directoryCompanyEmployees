@@ -33,7 +33,7 @@ public class Employee {
     private String comment;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PhoneNumber> phoneNumbers;
+    private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
     public Employee(){
     }
@@ -44,7 +44,8 @@ public class Employee {
         this.patronymic = patronymic;
     }
 
-    public Employee(String firstName, String lastName, String patronymic, LocalDate dateBirth, String addressResidence, Position position, String comment) {
+    public Employee(String firstName, String lastName, String patronymic, LocalDate dateBirth, String addressResidence,
+                    Position position, String comment, List<PhoneNumber> phoneNumbers){
         this.firstName = firstName;
         this.lastName = lastName;
         this.patronymic = patronymic;
@@ -52,7 +53,7 @@ public class Employee {
         this.addressResidence = addressResidence;
         this.position = position;
         this.comment = comment;
-        this.phoneNumbers = new ArrayList<PhoneNumber>();
+        this.phoneNumbers = phoneNumbers;
     }
 
     public void addPhoneNumber(PhoneNumber phoneNumber) {
@@ -160,21 +161,32 @@ public class Employee {
         return false;
     }
 
+
+    //очень необычная реализация сравнения
+    //Сделано так что бы не было разницы что вводить первее
+    // фамилия имя или имя фамилия
     public boolean isName(String name) {
         String[] arrayName = name.split(" ");
+        int i = 0;
 
         for(String firstName: arrayName){
-            if(this.firstName.equals(firstName))
-                return true;
+            if(this.firstName.toLowerCase().equals(firstName.toLowerCase())) {
+                i++;
+                break;
+            }
         }
-        for(String lastName: arrayName){
-            if(this.lastName.equals(lastName))
-                return true;
+        for(String lastName: arrayName) {
+            if (this.lastName.toLowerCase().equals(lastName.toLowerCase())){
+                i++;
+                break;
+            }
         }
-        for(String patronymic: arrayName){
-            if(this.patronymic.equals(patronymic))
-                return true;
+        for(String patronymic: arrayName) {
+            if (this.patronymic.toLowerCase().equals(patronymic.toLowerCase())){
+                i++;
+                break;
+            }
         }
-        return false;
+        return arrayName.length == i;
     }
 }

@@ -24,7 +24,7 @@
       <Button layoutX="1113.0" layoutY="278.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="76.0" prefWidth="120.0" text="Удалить" />
       <Label layoutX="1055.0" layoutY="515.0" text="Поиск по" />
       <ChoiceBox fx:id="searchChoiceBox" layoutX="1130.0" layoutY="511.0" prefHeight="25.0" prefWidth="136.0" />
-      <TextField fx:id="searchTextField" layoutX="1055.0" layoutY="553.0" prefHeight="25.0" prefWidth="213.0" />
+      <TextField fx:id="searchTextField" layoutX="1055.0" layoutY="553.0" onAction="#handleSearchButton" prefHeight="25.0" prefWidth="213.0" />
       <Button layoutX="1074.0" layoutY="593.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Найти" />
       <Button layoutX="1179.0" layoutY="593.0" mnemonicParsing="false" onAction="#searchReset" text="Сбросить" />
       <Button layoutX="1113.0" layoutY="373.0" mnemonicParsing="false" onAction="#editPosition" prefHeight="76.0" prefWidth="120.0" text="Список должностей" textAlignment="CENTER" wrapText="true" />

@@ -1,6 +1,7 @@
 package com.fxmlControllers;
 
 import com.entity.Employee;
+import com.entity.PhoneNumber;
 import com.entity.Position;
 import com.servece.EmployeeService;
 import com.servece.PositionService;
@@ -9,11 +10,19 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddEmployeeController implements Initializable {
+    @FXML private TextField phoneNumberTextField;
+    @FXML private ComboBox<String> typePhoneNumberComboBox;
+    @FXML private TableView<PhoneNumber> phoneNumberTableView;
+    @FXML private TableColumn<PhoneNumber, String> typePhoneNumberColumn;
+    @FXML private TableColumn<PhoneNumber, String> phoneNumberColumn;
     @FXML private TextField lastNameTextField;
     @FXML private TextField firstNameTextField;
     @FXML private TextField patronymicTextField;
@@ -23,20 +32,19 @@ public class AddEmployeeController implements Initializable {
     @FXML private TextArea commentTextArea;
     @FXML private Label messageErrorLabel;
     private Stage stage;
-
+    private Employee employee = new Employee();
 
 
     @FXML private void handleButton(){
         if(checkData()) {
-            Employee employee = new Employee(
-                    this.firstNameTextField.getText(),
-                    this.lastNameTextField.getText(),
-                    this.patronymicTextField.getText(),
-                    this.dateBirthDatePicker.getValue(),
-                    this.addressResidenceTextField.getText(),
-                    this.positionChoiceBox.getValue(),
-                    this.commentTextArea.getText()
-            );
+            employee.setFirstName(this.firstNameTextField.getText());
+            employee.setLastName(this.lastNameTextField.getText());
+            employee.setPatronymic(this.patronymicTextField.getText());
+            employee.setAddressResidence(this.addressResidenceTextField.getText());
+            employee.setDateBirth(this.dateBirthDatePicker.getValue());
+            employee.setPosition(this.positionChoiceBox.getValue());
+            employee.setComment(this.commentTextArea.getText());
+            employee.setPhoneNumbers(this.phoneNumberTableView.getItems());
             addEmployee(employee);
             this.stage.close();
         }
@@ -67,6 +75,8 @@ public class AddEmployeeController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle rb) {
+        this.typePhoneNumberColumn.setCellValueFactory(new PropertyValueFactory<PhoneNumber, String>("typePhoneNumber"));
+        this.phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<PhoneNumber, String>("phoneNumber"));
         PositionService positionService = new PositionService();
         ObservableList<Position> positions = FXCollections.observableArrayList(positionService.getAllPosition());
         this.positionChoiceBox.setItems(positions);
@@ -76,5 +86,16 @@ public class AddEmployeeController implements Initializable {
         this.stage = stage;
     }
 
+    @FXML private void addPhoneNumber(){
+        PhoneNumber phoneNumber = new PhoneNumber(
+                this.employee, this.typePhoneNumberComboBox.getValue(), this.phoneNumberTextField.getText());
+        this.phoneNumberTableView.getItems().add(phoneNumber);
+    }
+    @FXML private void deletePhoneNumber(){
+        if(this.phoneNumberTableView.getSelectionModel().getSelectedItem() == null)
+            return;
+        this.phoneNumberTableView.getItems().remove(this.phoneNumberTableView.getSelectionModel().getSelectedItem());
+
+    }
 
 }
