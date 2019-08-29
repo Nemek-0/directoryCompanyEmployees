@@ -25,6 +25,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.17</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -45,7 +46,6 @@
                 <version>2.4</version>
                 <configuration>
                     <archive>
-                        <index>true</index>
                         <manifest>
                             <mainClass>com.DirectoryCompanyEmployee</mainClass>
                         </manifest>

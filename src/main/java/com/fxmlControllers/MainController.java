@@ -2,7 +2,6 @@ package com.fxmlControllers;
 
 import com.entity.Employee;
 import com.entity.PhoneNumber;
-import com.entity.Position;
 import com.servece.EmployeeService;
 
 import java.io.IOException;
@@ -64,36 +63,37 @@ public class MainController implements Initializable {
 
     @FXML private void handleSearchButton(){
         ObservableList<Employee> searchEmployeesData = FXCollections.observableArrayList();
-        if(this.searchChoiceBox.getValue().equals("ФИО"))
-            searchEmployeesData = findByName(searchEmployeesData);
-        if(this.searchChoiceBox.getValue().equals("Номер телефона"))
-            searchEmployeesData = findByPhoneNumber(searchEmployeesData);
+        if(this.searchChoiceBox.getValue().equals("ФИО")) {
+            findByName(searchEmployeesData);
+        }
+        if(this.searchChoiceBox.getValue().equals("Номер телефона")) {
+            findByPhoneNumber(searchEmployeesData);
+        }
+        if(this.searchChoiceBox.getValue().equals("Должность"))
+            findByPosition(searchEmployeesData);
         employeesTable.setItems(searchEmployeesData);
     }
 
-    private ObservableList<Employee> findByName(ObservableList<Employee> searchEmployeesData){
+    private void findByName(ObservableList<Employee> searchEmployeesData){
         for (Employee employee: this.employeesData){
             if(employee.isName(this.searchTextField.getText()))
                 searchEmployeesData.add(employee);
         }
-        return searchEmployeesData;
 
     }
 
-    private ObservableList<Employee> findByPhoneNumber(ObservableList<Employee> searchEmployeesData){
+    private void findByPhoneNumber(ObservableList<Employee> searchEmployeesData){
         for (Employee employee: this.employeesData){
             if(employee.isPhoneNumber(new PhoneNumber(this.searchTextField.getText())))
                 searchEmployeesData.add(employee);
         }
-        return searchEmployeesData;
     }
 
-    private ObservableList<Employee> findByPosition(ObservableList<Employee> searchEmployeesData){
+    private void findByPosition(ObservableList<Employee> searchEmployeesData){
         for (Employee employee: this.employeesData){
             if(employee.getPosition().isNamePosition(this.searchTextField.getText()))
                 searchEmployeesData.add(employee);
         }
-        return searchEmployeesData;
     }
 
     @FXML private void searchReset(){
@@ -153,7 +153,6 @@ public class MainController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Редоктирование");
         stage.initModality(Modality.APPLICATION_MODAL);
-        controller.setStage(stage);
         stage.showAndWait();
         updateData();
     }

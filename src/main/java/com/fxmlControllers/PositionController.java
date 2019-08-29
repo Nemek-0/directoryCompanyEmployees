@@ -24,7 +24,6 @@ import java.util.ResourceBundle;
 
 public class PositionController implements Initializable {
 
-    private Stage stage;
 
     @FXML private TableView<Position> positionTableView;
     @FXML private TableColumn<Position, Integer> idColumn;
@@ -66,10 +65,7 @@ public class PositionController implements Initializable {
         updateData();
     }
 
-    public void setStage(Stage stage){
-        this.stage = stage;
-    }
-
+    //------------------------------------------------------------------
     @FXML private void editPosition() throws IOException {
 
         Stage stage = new Stage();

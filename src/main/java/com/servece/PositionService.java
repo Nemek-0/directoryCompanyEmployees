@@ -3,8 +3,7 @@ package com.servece;
 
 import com.dao.PositionDAO;
 import com.entity.Position;
-
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class PositionService {
@@ -28,7 +27,11 @@ public class PositionService {
         positionDAO.update(position);
     }
 
-    public List getAllPosition() {
-        return positionDAO.getAllPosition();
+    public List<Position> getAllPosition() {
+        List<Position> list = new ArrayList<>();
+        for(Object position :positionDAO.getAllPosition()){
+            list.add((Position) position);
+        }
+        return list;
     }
 }

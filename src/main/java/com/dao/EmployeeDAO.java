@@ -48,9 +48,9 @@ public class EmployeeDAO {
             session.close();
         }
 
-        public List<Employee> getAllEmployee() {
+        public List getAllEmployee() {
             Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            List list = session.createQuery(
+            List<?> list = session.createQuery(
                     "select distinct employee From Employee as employee left join fetch employee.position " +
                             "left join fetch employee.phoneNumbers ").list();
             session.close();

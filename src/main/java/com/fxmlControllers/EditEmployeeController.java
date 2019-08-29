@@ -75,7 +75,6 @@ public class EditEmployeeController implements Initializable {
         EmployeeService employeeService = new EmployeeService();
         employeeService.updateEmployee(employee);
     }
-
     public void initialize(URL url, ResourceBundle rb) {
         this.typePhoneNumberColumn.setCellValueFactory(new PropertyValueFactory<PhoneNumber, String>("typePhoneNumber"));
         this.phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<PhoneNumber, String>("phoneNumber"));

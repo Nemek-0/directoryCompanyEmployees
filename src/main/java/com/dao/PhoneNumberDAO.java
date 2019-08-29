@@ -40,7 +40,7 @@ public class PhoneNumberDAO {
         session.close();
     }
 
-    public List<PhoneNumber> getAllPhoneNumber() {
+    public List getAllPhoneNumber() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         List list = session.createQuery(
                 "From PhoneNumber ").list();

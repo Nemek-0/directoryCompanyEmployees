@@ -2,7 +2,7 @@ package com.servece;
 
 import com.dao.PhoneNumberDAO;
 import com.entity.PhoneNumber;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class PhoneNumberService {
@@ -25,8 +25,12 @@ public class PhoneNumberService {
         phoneNumberDAO.update( phoneNumber);
     }
 
-    public List getAllPhoneNumber() {
-        return  phoneNumberDAO.getAllPhoneNumber();
+    public List<PhoneNumber> getAllPhoneNumber() {
+        List<PhoneNumber> list = new ArrayList<>();
+        for(Object phoneNumber :phoneNumberDAO.getAllPhoneNumber()){
+            list.add((PhoneNumber) phoneNumber);
+        }
+        return list;
     }
 
 }

@@ -1,8 +1,15 @@
+com\fxmlControllers\PositionController.class
+com\servece\PhoneNumberService.class
 com\utils\HibernateSessionFactoryUtil.class
 com\entity\PhoneNumber.class
+com\dao\PhoneNumberDAO.class
 com\dao\EmployeeDAO.class
+com\fxmlControllers\EditPositionController.class
 com\entity\Employee.class
-com\fxmlControllers\IndexController.class
+com\fxmlControllers\MainController.class
+com\dao\PositionDAO.class
+com\entity\Position.class
+com\servece\PositionService.class
 com\fxmlControllers\EditEmployeeController.class
 com\fxmlControllers\AddEmployeeController.class
 com\DirectoryCompanyEmployee.class

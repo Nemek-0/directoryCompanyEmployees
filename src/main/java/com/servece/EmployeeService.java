@@ -1,7 +1,8 @@
 package com.servece;
+
 import com.dao.EmployeeDAO;
 import com.entity.Employee;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeService {
@@ -24,8 +25,12 @@ public class EmployeeService {
         employeeDAO.update(employee);
     }
 
-    public List getAllEmployees() {
-        return employeeDAO.getAllEmployee();
+    public List<Employee> getAllEmployees() {
+        List<Employee> list = new ArrayList<>();
+        for(Object employee :employeeDAO.getAllEmployee()){
+            list.add((Employee) employee);
+        }
+        return list;
     }
 
 
