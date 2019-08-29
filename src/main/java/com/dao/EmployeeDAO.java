@@ -17,13 +17,6 @@ public class EmployeeDAO {
             return employee;
         }
 
-        public PhoneNumber findPhoneNumbersById(int id) {
-            Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            PhoneNumber phoneNumber = session.get(PhoneNumber.class, id);
-            session.close();
-            return phoneNumber;
-        }
-
         public void save(Employee employee) {
             Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             Transaction tx1 = session.beginTransaction();

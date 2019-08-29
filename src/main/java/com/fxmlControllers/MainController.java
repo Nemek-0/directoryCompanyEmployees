@@ -38,17 +38,18 @@ public class MainController implements Initializable {
     private ObservableList<Employee> employeesData = FXCollections.observableArrayList();
 
     public void initialize(URL url, ResourceBundle rb) {
+        initializeTableView();
+        this.searchChoiceBox.setItems(FXCollections.observableArrayList("ФИО", "Номер телефона", "Должность"));
+        this.searchChoiceBox.setValue("ФИО");
+        updateData();
+    }
 
+    private void initializeTableView(){
         this.idColumn.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("id"));
         this.firstNameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("firstName"));
         this.lastNameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
         this.patronymicColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("patronymic"));
         this.positionColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("position"));
-        ObservableList<String> search = FXCollections.observableArrayList("ФИО", "Номер телефона", "Должность");
-        this.searchChoiceBox.setItems(search);
-        this.searchChoiceBox.setValue("ФИО");
-        updateData();
-
     }
 
     private void updateData(){

@@ -1,6 +1,5 @@
 package com.dao;
 
-import com.entity.Employee;
 import com.entity.PhoneNumber;
 import com.utils.HibernateSessionFactoryUtil;
 import org.hibernate.Session;

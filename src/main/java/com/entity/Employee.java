@@ -56,15 +56,6 @@ public class Employee {
         this.phoneNumbers = phoneNumbers;
     }
 
-    public void addPhoneNumber(PhoneNumber phoneNumber) {
-        phoneNumber.setEmployee(this);
-        phoneNumbers.add(phoneNumber);
-    }
-
-    public void removePhoneNumbers(PhoneNumber phoneNumber) {
-        this.phoneNumbers.remove(phoneNumber);
-    }
-
     public int getId() {
         return id;
     }
@@ -161,7 +152,6 @@ public class Employee {
         return false;
     }
 
-
     //очень необычная реализация сравнения
     //Сделано так что бы не было разницы что вводить первее
     // фамилия имя или имя фамилия
@@ -188,5 +178,14 @@ public class Employee {
             }
         }
         return arrayName.length == i;
+    }
+
+    public void addPhoneNumber(PhoneNumber phoneNumber) {
+        phoneNumber.setEmployee(this);
+        phoneNumbers.add(phoneNumber);
+    }
+
+    public void removePhoneNumbers(PhoneNumber phoneNumber) {
+        this.phoneNumbers.remove(phoneNumber);
     }
 }
