@@ -138,6 +138,26 @@ public class MainController implements Initializable {
         updateData();
     }
 
+    @FXML private void viewEmployee() throws IOException {
+
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/editEmployee.fxml"));
+        Parent root = loader.load();
+        EditEmployeeController controller = loader.getController();
+
+        if(this.employeesTable.getSelectionModel().getSelectedItem() == null)
+            return;
+        controller.setEmployee(this.employeesTable.getSelectionModel().getSelectedItem());
+        controller.editableBan();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Редоктирование");
+        stage.initModality(Modality.APPLICATION_MODAL);
+        controller.setStage(stage);
+        stage.showAndWait();
+        updateData();
+    }
+
     @FXML private void deleteEmployee(){
         EmployeeService employeeService = new EmployeeService();
         employeeService.deleteEmployee(this.employeesTable.getSelectionModel().getSelectedItem());
@@ -151,9 +171,24 @@ public class MainController implements Initializable {
         PositionController controller = loader.getController();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Редоктирование");
+        stage.setTitle("Список должностей");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
         updateData();
+    }
+
+
+
+    @FXML private void help() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/help.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Помощь");
+        HelpController controller = loader.getController();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        controller.setStage(stage);
+        stage.showAndWait();
     }
 }

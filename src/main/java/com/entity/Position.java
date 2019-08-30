@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "positions")
@@ -57,6 +58,19 @@ public class Position {
 
     public boolean isNamePosition(String namePosition){
         return this.getName().equals(namePosition);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Position position = (Position) o;
+        return id == position.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, employeeList);
     }
 
     @Override

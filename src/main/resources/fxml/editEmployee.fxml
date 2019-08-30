@@ -31,7 +31,7 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <ChoiceBox fx:id="positionChoiceBox" layoutX="135.0" layoutY="260.0" prefWidth="150.0" />
+        <ChoiceBox fx:id="positionChoiceBox" layoutX="135.0" layoutY="260.0" prefHeight="25.0" prefWidth="200.0" />
         <TableView fx:id="phoneNumberTableView" layoutX="560.0" layoutY="142.0" prefHeight="215.0" prefWidth="288.0">
             <columns>
                 <TableColumn fx:id="typePhoneNumberColumn" prefWidth="122.0" text="Тип" />

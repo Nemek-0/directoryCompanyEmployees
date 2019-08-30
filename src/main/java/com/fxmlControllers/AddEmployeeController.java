@@ -87,15 +87,19 @@ public class AddEmployeeController implements Initializable {
     }
 
     @FXML private void addPhoneNumber(){
+        if(this.phoneNumberTextField.getText().equals("")){
+            return;
+        }
         PhoneNumber phoneNumber = new PhoneNumber(
-                this.employee, this.typePhoneNumberComboBox.getValue(), this.phoneNumberTextField.getText());
+                this.typePhoneNumberComboBox.getValue(), this.phoneNumberTextField.getText());
+        this.employee.addPhoneNumber(phoneNumber);
         this.phoneNumberTableView.getItems().add(phoneNumber);
     }
-    @FXML private void deletePhoneNumber(){
+
+    @FXML private void removePhoneNumber(){
         if(this.phoneNumberTableView.getSelectionModel().getSelectedItem() == null)
             return;
-        this.phoneNumberTableView.getItems().remove(this.phoneNumberTableView.getSelectionModel().getSelectedItem());
-
+        this.employee.removePhoneNumbers(this.phoneNumberTableView.getSelectionModel().getSelectedItem());
     }
 
 }

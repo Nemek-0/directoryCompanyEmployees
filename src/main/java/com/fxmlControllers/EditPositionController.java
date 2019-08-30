@@ -44,4 +44,6 @@ public class EditPositionController implements Initializable {
         positionService.updatePosition(this.position);
         this.stage.close();
     }
+
+
 }

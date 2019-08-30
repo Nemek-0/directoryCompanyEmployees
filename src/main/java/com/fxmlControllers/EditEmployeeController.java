@@ -75,6 +75,7 @@ public class EditEmployeeController implements Initializable {
         EmployeeService employeeService = new EmployeeService();
         employeeService.updateEmployee(employee);
     }
+
     public void initialize(URL url, ResourceBundle rb) {
         this.typePhoneNumberColumn.setCellValueFactory(new PropertyValueFactory<PhoneNumber, String>("typePhoneNumber"));
         this.phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<PhoneNumber, String>("phoneNumber"));
@@ -95,6 +96,7 @@ public class EditEmployeeController implements Initializable {
     private void updateData(){
         updateTextField();
         updatePhoneNumbersTable();
+        this.positionChoiceBox.setValue(employee.getPosition());
     }
 
     private void updateTextField(){
@@ -112,14 +114,30 @@ public class EditEmployeeController implements Initializable {
     }
 
     @FXML private void addPhoneNumber(){
+        if(this.phoneNumberTextField.getText().equals("")){
+            return;
+        }
         PhoneNumber phoneNumber = new PhoneNumber(
                 this.typePhoneNumberComboBox.getValue(), this.phoneNumberTextField.getText());
         this.employee.addPhoneNumber(phoneNumber);
         this.phoneNumberTableView.getItems().add(phoneNumber);
     }
+
     @FXML private void removePhoneNumber(){
         if(this.phoneNumberTableView.getSelectionModel().getSelectedItem() == null)
             return;
         this.employee.removePhoneNumbers(this.phoneNumberTableView.getSelectionModel().getSelectedItem());
+    }
+
+    public void editableBan(){
+        this.typePhoneNumberComboBox.setEditable(false);
+        this.phoneNumberTextField.setEditable(false);
+        this.lastNameTextField.setEditable(false);
+        this.firstNameTextField.setEditable(false);
+        this.patronymicTextField.setEditable(false);
+        this.dateBirthDatePicker.setEditable(false);
+        this.addressResidenceTextField.setEditable(false);
+        this.commentTextArea.setEditable(false);
+        this.positionChoiceBox.setDisable(true);
     }
 }

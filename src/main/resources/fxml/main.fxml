@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxmlControllers.MainController">
+<AnchorPane prefHeight="720.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxmlControllers.MainController">
    <children>
       <TableView fx:id="employeesTable" layoutX="95.0" layoutY="165.0" prefHeight="555.0" prefWidth="535.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="50.0">
         <columns>
@@ -19,14 +17,26 @@
 
         </columns>
       </TableView>
-      <Button layoutX="1113.0" layoutY="82.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="76.0" prefWidth="120.0" text="Добавить сотрудника" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="1113.0" layoutY="179.0" mnemonicParsing="false" onAction="#editEmployee" prefHeight="76.0" prefWidth="120.0" text="Изменить информацию о сотруднике" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="1113.0" layoutY="278.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="76.0" prefWidth="120.0" text="Удалить" />
-      <Label layoutX="1055.0" layoutY="515.0" text="Поиск по" />
-      <ChoiceBox fx:id="searchChoiceBox" layoutX="1130.0" layoutY="511.0" prefHeight="25.0" prefWidth="136.0" />
-      <TextField fx:id="searchTextField" layoutX="1055.0" layoutY="553.0" onAction="#handleSearchButton" prefHeight="25.0" prefWidth="213.0" />
-      <Button layoutX="1074.0" layoutY="593.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Найти" />
-      <Button layoutX="1179.0" layoutY="593.0" mnemonicParsing="false" onAction="#searchReset" text="Сбросить" />
-      <Button layoutX="1113.0" layoutY="373.0" mnemonicParsing="false" onAction="#editPosition" prefHeight="76.0" prefWidth="120.0" text="Список должностей" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="1072.0" layoutY="62.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="66.0" prefWidth="100.0" text="Добавить сотрудника" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="110.0" />
+      <Button layoutX="1073.0" layoutY="137.0" mnemonicParsing="false" onAction="#editEmployee" prefHeight="66.0" prefWidth="100.0" text="Изменить информацию о сотруднике" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="109.0" />
+      <Button layoutX="1073.0" layoutY="287.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="66.0" prefWidth="100.0" text="Удалить" AnchorPane.rightAnchor="109.0" />
+      <Label layoutX="1015.0" layoutY="498.0" text="Поиск по" AnchorPane.rightAnchor="215.0" />
+      <ChoiceBox fx:id="searchChoiceBox" layoutX="1090.0" layoutY="494.0" prefHeight="25.0" prefWidth="136.0" AnchorPane.rightAnchor="56.0" />
+      <TextField fx:id="searchTextField" layoutX="1015.0" layoutY="536.0" onAction="#handleSearchButton" prefHeight="25.0" prefWidth="213.0" AnchorPane.rightAnchor="54.0" />
+      <Button layoutX="1034.0" layoutY="583.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Найти" AnchorPane.rightAnchor="198.0" />
+      <Button layoutX="1139.0" layoutY="583.0" mnemonicParsing="false" onAction="#searchReset" text="Сбросить" AnchorPane.rightAnchor="75.0" />
+      <Button layoutX="1073.0" layoutY="367.0" mnemonicParsing="false" onAction="#editPosition" prefHeight="66.0" prefWidth="100.0" text="Список должностей" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="109.0" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Пункт №1" />
+          <Menu mnemonicParsing="false" text="Пункт №2" />
+          <Menu mnemonicParsing="false" text="Помощь">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#help" text="Как пользоваться" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button layoutX="1073.0" layoutY="212.0" mnemonicParsing="false" onAction="#viewEmployee" prefHeight="66.0" prefWidth="100.0" text="Посмотреть данные о сотруднике" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="109.0" />
    </children>
 </AnchorPane>
