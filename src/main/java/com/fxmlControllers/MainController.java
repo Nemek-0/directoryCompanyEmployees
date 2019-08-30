@@ -85,7 +85,7 @@ public class MainController implements Initializable {
 
     private void findByPhoneNumber(ObservableList<Employee> searchEmployeesData){
         for (Employee employee: this.employeesData){
-            if(employee.isPhoneNumber(new PhoneNumber(this.searchTextField.getText())))
+            if(employee.isPhoneNumberOwnedEmployee(new PhoneNumber(this.searchTextField.getText())))
                 searchEmployeesData.add(employee);
         }
     }
@@ -113,7 +113,6 @@ public class MainController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Добовление сотрудника");
         AddEmployeeController controller = loader.getController();
-
         stage.initModality(Modality.APPLICATION_MODAL);
         controller.setStage(stage);
         stage.showAndWait();

@@ -41,7 +41,7 @@
         <TextField layoutX="585.0" layoutY="69.0" prefHeight="25.0" prefWidth="96.0" promptText="Тип телефона" />
         <TextField fx:id="phoneNumberTextField" layoutX="689.0" layoutY="69.0" prefHeight="25.0" prefWidth="158.0" promptText="Номер телефона" />
         <Button layoutX="751.0" layoutY="108.0" mnemonicParsing="false" onAction="#addPhoneNumber" prefHeight="25.0" prefWidth="96.0" text="Добавить" />
-        <Button layoutX="751.0" layoutY="372.0" mnemonicParsing="false" onAction="#deletePhoneNumber" prefHeight="25.0" prefWidth="96.0" text="Удалить" />
+        <Button layoutX="751.0" layoutY="372.0" mnemonicParsing="false" onAction="#removePhoneNumber" prefHeight="25.0" prefWidth="96.0" text="Удалить" />
         <ComboBox fx:id="typePhoneNumberComboBox" editable="true" layoutX="560.0" layoutY="69.0" prefHeight="25.0" prefWidth="120.0" promptText="Тип телефона">
             <opaqueInsets>
                 <Insets />

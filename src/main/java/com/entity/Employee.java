@@ -143,7 +143,7 @@ public class Employee {
                 '}';
     }
 
-    public boolean isPhoneNumber(PhoneNumber phoneNumber){
+    public boolean isPhoneNumberOwnedEmployee(PhoneNumber phoneNumber){
         System.out.println(this.phoneNumbers);
         for(PhoneNumber thisPhoneNumber : this.phoneNumbers){
             if(thisPhoneNumber.isPhoneNumber(phoneNumber))

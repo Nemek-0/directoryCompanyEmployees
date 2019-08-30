@@ -38,7 +38,6 @@ public class PositionController implements Initializable {
     }
 
     private void updateData(){
-
         initData();
         positionTableView.setItems(this.positionsData);
     }
