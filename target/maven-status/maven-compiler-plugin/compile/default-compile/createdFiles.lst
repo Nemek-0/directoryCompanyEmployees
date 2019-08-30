@@ -13,4 +13,5 @@ com\servece\PositionService.class
 com\fxmlControllers\EditEmployeeController.class
 com\fxmlControllers\AddEmployeeController.class
 com\DirectoryCompanyEmployee.class
+com\fxmlControllers\HelpController.class
 com\servece\EmployeeService.class

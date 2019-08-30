@@ -4,7 +4,6 @@ import com.entity.Employee;
 import com.entity.PhoneNumber;
 import com.entity.Position;
 import com.servece.EmployeeService;
-import com.servece.PhoneNumberService;
 import com.servece.PositionService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,10 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class EditEmployeeController implements Initializable {

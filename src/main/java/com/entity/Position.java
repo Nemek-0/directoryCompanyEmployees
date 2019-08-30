@@ -1,7 +1,5 @@
 package com.entity;
 
-import javafx.geometry.Pos;
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;

@@ -1,8 +1,6 @@
 package com.fxmlControllers;
 
-import com.entity.Employee;
 import com.entity.Position;
-import com.servece.EmployeeService;
 import com.servece.PositionService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

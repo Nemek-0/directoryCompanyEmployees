@@ -1,6 +1,5 @@
 package com.servece;
 
-
 import com.dao.PositionDAO;
 import com.entity.Position;
 import java.util.ArrayList;

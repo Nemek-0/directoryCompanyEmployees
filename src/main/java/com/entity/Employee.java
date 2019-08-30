@@ -1,9 +1,5 @@
 package com.entity;
 
-import com.servece.EmployeeService;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
