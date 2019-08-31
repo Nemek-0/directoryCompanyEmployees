@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.servece.PhoneNumberService;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,7 +20,9 @@ public class Employee {
 
     private String patronymic;
 
+    @Column(name = "dateBirth")
     private LocalDate dateBirth;
+
 
     private String addressResidence;
 
@@ -182,6 +186,8 @@ public class Employee {
     }
 
     public void removePhoneNumbers(PhoneNumber phoneNumber) {
+        PhoneNumberService phoneNumberService = new PhoneNumberService();
         this.phoneNumbers.remove(phoneNumber);
+        phoneNumberService.deletePhoneNumber(phoneNumber);
     }
 }

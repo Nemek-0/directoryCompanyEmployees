@@ -25,7 +25,7 @@
         <DatePicker fx:id="dateBirthDatePicker" layoutX="136.0" layoutY="180.0" prefHeight="25.0" prefWidth="149.0" AnchorPane.leftAnchor="135.0" />
         <TextField fx:id="addressResidenceTextField" layoutX="138.0" layoutY="217.0" prefHeight="25.0" prefWidth="407.0" AnchorPane.leftAnchor="135.0" />
         <TextArea fx:id="commentTextArea" layoutX="135.0" layoutY="300.0" prefHeight="194.0" prefWidth="407.0" AnchorPane.leftAnchor="135.0" />
-        <Button layoutX="762.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="68.0" prefWidth="85.0" text="Соханить" />
+        <Button fx:id="savePhoneButton" layoutX="762.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="68.0" prefWidth="85.0" text="Соханить" />
         <Label fx:id="messageErrorLabel" layoutX="490.0" layoutY="500.0" prefHeight="68.0" prefWidth="232.0" textAlignment="CENTER" textFill="RED" wrapText="true">
             <font>
                 <Font size="18.0" />
@@ -40,8 +40,8 @@
         </TableView>
         <TextField layoutX="585.0" layoutY="69.0" prefHeight="25.0" prefWidth="96.0" promptText="Тип телефона" />
         <TextField fx:id="phoneNumberTextField" layoutX="689.0" layoutY="69.0" prefHeight="25.0" prefWidth="158.0" promptText="Номер телефона" />
-        <Button layoutX="751.0" layoutY="108.0" mnemonicParsing="false" onAction="#addPhoneNumber" prefHeight="25.0" prefWidth="96.0" text="Добавить" />
-        <Button layoutX="751.0" layoutY="372.0" mnemonicParsing="false" onAction="#removePhoneNumber" prefHeight="25.0" prefWidth="96.0" text="Удалить" />
+        <Button fx:id="addPhoneButton" layoutX="751.0" layoutY="108.0" mnemonicParsing="false" onAction="#addPhoneNumber" prefHeight="25.0" prefWidth="96.0" text="Добавить" />
+        <Button fx:id="removePhoneButton" layoutX="751.0" layoutY="372.0" mnemonicParsing="false" onAction="#removePhoneNumber" prefHeight="25.0" prefWidth="96.0" text="Удалить" />
         <ComboBox fx:id="typePhoneNumberComboBox" editable="true" layoutX="560.0" layoutY="69.0" prefHeight="25.0" prefWidth="120.0" promptText="Тип телефона">
             <opaqueInsets>
                 <Insets />

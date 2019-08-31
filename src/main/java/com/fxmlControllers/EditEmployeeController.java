@@ -7,6 +7,8 @@ import com.servece.EmployeeService;
 import com.servece.PositionService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -30,6 +32,10 @@ public class EditEmployeeController implements Initializable {
     @FXML private ChoiceBox<Position> positionChoiceBox;
     @FXML private TextArea commentTextArea;
     @FXML private Label messageErrorLabel;
+    @FXML private Button addPhoneButton;
+    @FXML private Button removePhoneButton;
+    @FXML private Button savePhoneButton;
+
     private Stage stage;
     private Employee employee = new Employee();
 
@@ -123,6 +129,7 @@ public class EditEmployeeController implements Initializable {
         if(this.phoneNumberTableView.getSelectionModel().getSelectedItem() == null)
             return;
         this.employee.removePhoneNumbers(this.phoneNumberTableView.getSelectionModel().getSelectedItem());
+        this.phoneNumberTableView.getItems().remove(this.phoneNumberTableView.getSelectionModel().getSelectedItem());
     }
 
     public void editableBan(){
@@ -135,5 +142,14 @@ public class EditEmployeeController implements Initializable {
         this.addressResidenceTextField.setEditable(false);
         this.commentTextArea.setEditable(false);
         this.positionChoiceBox.setDisable(true);
+        this.addPhoneButton.setVisible(false);
+        this.removePhoneButton.setVisible(false);
+        this.savePhoneButton.setText("Ок");
+        this.savePhoneButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stage.close();
+            }
+        });
     }
 }
