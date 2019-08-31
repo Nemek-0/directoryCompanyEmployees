@@ -9,7 +9,7 @@ import java.io.IOException;
 
 
 
-public class DirectoryCompanyEmployee extends Application {
+public class MainApp extends Application {
 
 
     @Override
@@ -27,6 +27,6 @@ public class DirectoryCompanyEmployee extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+        Application.launch(args);
     }
 }
