@@ -4,28 +4,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxmlControllers.MainController">
+<AnchorPane prefHeight="720.0" prefWidth="1139.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxmlControllers.MainController">
    <children>
-      <TableView fx:id="employeesTable" layoutX="95.0" layoutY="165.0" prefHeight="555.0" prefWidth="535.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="50.0">
+      <TableView fx:id="employeesTable" layoutX="95.0" layoutY="165.0" prefHeight="620.0" prefWidth="754.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="335.0" AnchorPane.topAnchor="50.0">
         <columns>
             <TableColumn fx:id="idColumn" prefWidth="62.0" text="ИД" />
 
-          <TableColumn fx:id="lastNameColumn" prefWidth="144.0" text="Фамилия" />
-          <TableColumn fx:id="firstNameColumn" prefWidth="99.0" text="Имя" />
-          <TableColumn fx:id="patronymicColumn" prefWidth="126.0" text="Отчество" />
-            <TableColumn fx:id="positionColumn" prefWidth="189.0" text="Должность" />
+          <TableColumn fx:id="lastNameColumn" prefWidth="158.0" text="Фамилия" />
+          <TableColumn fx:id="firstNameColumn" prefWidth="133.0" text="Имя" />
+          <TableColumn fx:id="patronymicColumn" prefWidth="167.0" text="Отчество" />
+            <TableColumn fx:id="positionColumn" prefWidth="233.0" text="Должность" />
 
         </columns>
       </TableView>
-      <Button layoutX="1072.0" layoutY="62.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="66.0" prefWidth="100.0" text="Добавить сотрудника" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="110.0" />
-      <Button layoutX="1073.0" layoutY="137.0" mnemonicParsing="false" onAction="#editEmployee" prefHeight="66.0" prefWidth="100.0" text="Изменить информацию о сотруднике" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="109.0" />
-      <Button layoutX="1073.0" layoutY="287.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="66.0" prefWidth="100.0" text="Удалить" AnchorPane.rightAnchor="109.0" />
-      <Label layoutX="1015.0" layoutY="498.0" text="Поиск по" AnchorPane.rightAnchor="215.0" />
-      <ChoiceBox fx:id="searchChoiceBox" layoutX="1090.0" layoutY="494.0" prefHeight="25.0" prefWidth="136.0" AnchorPane.rightAnchor="56.0" />
-      <TextField fx:id="searchTextField" layoutX="1015.0" layoutY="536.0" onAction="#handleSearchButton" prefHeight="25.0" prefWidth="213.0" AnchorPane.rightAnchor="54.0" />
-      <Button layoutX="1034.0" layoutY="583.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Найти" AnchorPane.rightAnchor="198.0" />
-      <Button layoutX="1139.0" layoutY="583.0" mnemonicParsing="false" onAction="#searchReset" text="Сбросить" AnchorPane.rightAnchor="75.0" />
-      <Button layoutX="1073.0" layoutY="367.0" mnemonicParsing="false" onAction="#editPosition" prefHeight="66.0" prefWidth="100.0" text="Список должностей" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="109.0" />
+      <Button layoutX="922.0" layoutY="62.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="66.0" prefWidth="100.0" text="Добавить сотрудника" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="117.0" />
+      <Button layoutX="923.0" layoutY="137.0" mnemonicParsing="false" onAction="#editEmployee" prefHeight="66.0" prefWidth="100.0" text="Изменить информацию о сотруднике" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="117.0" />
+      <Button layoutX="923.0" layoutY="287.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="66.0" prefWidth="100.0" text="Удалить" AnchorPane.rightAnchor="117.0" />
+      <Label layoutX="865.0" layoutY="498.0" text="Поиск по" AnchorPane.rightAnchor="222.0" />
+      <ChoiceBox fx:id="searchChoiceBox" layoutX="940.0" layoutY="494.0" prefHeight="25.0" prefWidth="136.0" AnchorPane.rightAnchor="63.0" />
+      <TextField fx:id="searchTextField" layoutX="865.0" layoutY="536.0" onAction="#handleSearchButton" prefHeight="25.0" prefWidth="213.0" AnchorPane.rightAnchor="61.0" />
+      <Button layoutX="884.0" layoutY="583.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Найти" AnchorPane.rightAnchor="205.0" />
+      <Button layoutX="989.0" layoutY="583.0" mnemonicParsing="false" onAction="#searchReset" text="Сбросить" AnchorPane.rightAnchor="205.0" />
+      <Button layoutX="923.0" layoutY="367.0" mnemonicParsing="false" onAction="#editPosition" prefHeight="66.0" prefWidth="100.0" text="Список должностей" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="117.0" />
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="Пункт №1" />
@@ -37,6 +37,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button layoutX="1073.0" layoutY="212.0" mnemonicParsing="false" onAction="#viewEmployee" prefHeight="66.0" prefWidth="100.0" text="Посмотреть данные о сотруднике" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="109.0" />
+      <Button layoutX="923.0" layoutY="212.0" mnemonicParsing="false" onAction="#viewEmployee" prefHeight="66.0" prefWidth="100.0" text="Посмотреть данные о сотруднике" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="117.0" />
    </children>
 </AnchorPane>

@@ -50,7 +50,7 @@ public class MainController implements Initializable {
         this.lastNameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
         this.patronymicColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("patronymic"));
         this.positionColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("position"));
-    }
+        }
 
     private void updateData(){
         initData();

@@ -75,9 +75,6 @@ public class PhoneNumber {
 
     @Override
     public String toString() {
-        return "PhoneNumber{" +
-                "typePhoneNumber='" + typePhoneNumber + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+        return this.phoneNumber;
     }
 }
