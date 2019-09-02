@@ -49,6 +49,8 @@ public class PositionController implements Initializable {
         if(this.positionTextField.getText().isEmpty())
             return;
         PositionService positionService = new PositionService();
+        Position position = new Position(this.positionTextField.getText());
+        System.out.println(position);
         positionService.savePosition(new Position(this.positionTextField.getText()));
         this.positionTextField.setText("");
         updateData();

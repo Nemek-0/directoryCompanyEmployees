@@ -57,9 +57,19 @@ public class MainController implements Initializable {
         employeesTable.setItems(employeesData);
     }
 
-    private void initData() {
-        EmployeeService employeeService = new EmployeeService();
-        employeesData.setAll(employeeService.getAllEmployees());
+    private void initData()  {
+        try {
+            EmployeeService employeeService = new EmployeeService();
+            employeesData.setAll(employeeService.getAllEmployees());
+        }
+        catch(Exception e){
+               try {
+                   error();
+               }
+               catch(Exception ignored){
+
+               }
+            }
     }
 
     @FXML private void handleSearchButton(){
@@ -187,6 +197,19 @@ public class MainController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Помощь");
         HelpController controller = loader.getController();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        controller.setStage(stage);
+        stage.showAndWait();
+    }
+
+    @FXML private void error() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/error.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Ошибка");
+        ErrorController controller = loader.getController();
         stage.initModality(Modality.APPLICATION_MODAL);
         controller.setStage(stage);
         stage.showAndWait();

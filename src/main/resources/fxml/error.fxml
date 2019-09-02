@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="273.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxmlControllers.ErrorController">
+    <children>
+        <TextArea editable="false" focusTraversable="false" layoutX="14.0" layoutY="14.0" pickOnBounds="false" prefHeight="203.0" prefWidth="377.0" text="Ошибка, не удолось соединиться с базой данных" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font></TextArea>
+        <Button layoutX="172.0" layoutY="232.0" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="62.0" text="Ок" />
+    </children>
+</AnchorPane>
