@@ -55,7 +55,7 @@ public class Position {
     }
 
     public boolean isNamePosition(String namePosition){
-        return this.getName().equals(namePosition);
+        return this.getName().toLowerCase().equals(namePosition.toLowerCase());
     }
 
     @Override

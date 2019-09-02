@@ -190,4 +190,10 @@ public class Employee {
         this.phoneNumbers.remove(phoneNumber);
         phoneNumberService.deletePhoneNumber(phoneNumber);
     }
+
+    public boolean isNamePosition(String namePosition) {
+        if(this.position == null)
+            return false;
+        return this.position.isNamePosition(namePosition);
+    }
 }

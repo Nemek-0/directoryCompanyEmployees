@@ -102,7 +102,7 @@ public class MainController implements Initializable {
 
     private void findByPosition(ObservableList<Employee> searchEmployeesData){
         for (Employee employee: this.employeesData){
-            if(employee.getPosition().isNamePosition(this.searchTextField.getText()))
+            if(employee.isNamePosition(this.searchTextField.getText()))
                 searchEmployeesData.add(employee);
         }
     }
